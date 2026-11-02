@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技術 &mdash; AC・CAIとできること ｜ Affectosphere</title>
+<meta name="description" content="Affective Computing（AC）とCAI（計算論的感情知性）の説明と、感情AIで具体的にできること。感情基盤モデル、不確実性の定量化、較正、多言語、活用事例、提供のかたちまで。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Affectosphere">
+<meta property="og:title" content="技術 &mdash; AC・CAIとできること ｜ Affectosphere">
+<meta property="og:description" content="Affective Computing（AC）とCAI（計算論的感情知性）の説明と、感情AIで具体的にできること。感情基盤モデル、不確実性の定量化、較正、多言語、活用事例、提供のかたちまで。">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap brand-row">
+    <a class="brand" href="index.html" aria-label="Affectosphere ホーム">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.28"/>
+          <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.25"/>
+          <circle cx="16" cy="16" r="4.75" fill="none" stroke="#C4974A" stroke-width="1.25"/>
+          <circle cx="16" cy="16" r="1.75" fill="currentColor"/>
+        </svg>
+      <span class="brand-name">
+        <b>Affectosphere</b>
+        <span>Emotion AI Company</span>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="ghost-square" href="contact.html">お問い合わせ</a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" data-nav-toggle>
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+          <path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="nav-band" aria-label="主要メニュー">
+    <div class="wrap">
+      <ul>
+        <li><a href="affectosphere.html">Affectosphere</a></li>
+        <li><a href="vision.html">ビジョン</a></li>
+        <li><a href="technology.html" aria-current="page">技術</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" data-nav-drawer>
+    <div class="wrap">
+      <ul>
+        <li><a href="affectosphere.html">Affectosphere</a></li>
+        <li><a href="vision.html">ビジョン</a></li>
+        <li><a href="technology.html" aria-current="page">技術</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="surface-ink">
+  <div class="ink-grid" aria-hidden="true"></div>
+  <div class="wrap page-head">
+    <p class="eyebrow reveal">Technology</p>
+    <h1 class="reveal">ACとCAI：感情を扱う技術と、その地図。</h1>
+    <p class="lead reveal">事業の接点が多いのは <strong>Affective Computing（AC／感情計算）</strong>です。私たちはACを土台に据え、その全体像を示す枠組みとして <strong>CAI（計算論的感情知性）</strong>を用います。ここでは両者の説明と、具体的にできることを示します。</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">01 &mdash; Affective Computing</p>
+      <h2>AC：感情を測り、扱う技術。</h2>
+    <p class="lead">ACは、人の感情を計算機が測り、扱うための技術領域です。テキスト・音声・行動などに残る感情の痕跡を対象にします。顧客対応、対話AI、学習支援、医療介護、公共の窓口：事業の接点はこの層に集まります。</p>
+    </header>
+    <div class="figrow reveal">
+      <div class="measure">
+        <p class="lead">ACの要点は、何を感じているかを一つに言い当てることではなく、どう受け取られうるかの幅を含めて扱うことです。同じ一文でも、読む人によって温かみと皮肉に割れます。その割れを潰さずに返すほうが、現場の判断には役立ちます。</p>
+        <p class="lead" style="margin-top:1.1rem">Affectosphereは、ACの中核を<strong>感情基盤モデル</strong>として実装しています。極性・離散感情・皮肉・攻撃性・強度・側面別感情・共感などを、多言語で一つのモデルが扱います。</p>
+      </div>
+      <div class="fig"><img src="img/ac.webp" alt="感情計算（Affective Computing）の様子の図" width="1024" height="1024" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band cream">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">02 &mdash; CAI</p>
+      <h2>測るだけでは、足りない。</h2>
+    <p class="lead">CAI（Computational Affective Intelligence／計算論的感情知性）は、感情を扱うAIが備えるべき能力を体系化した枠組みです。代表の査読研究に基づき、Affectosphereのすべての技術は、この地図の上に設計されます。</p>
+    </header>
+    <div class="figrow flip reveal">
+      <div class="measure">
+        <p class="lead">ACの実装は「知覚（感情を検出する）」に偏りがちです。しかし、感情を社会で本当に活かすには、感じ取り、内に保ち、推し量り、表し、やりとりし、ふるまいを律する：という一連の力が要ります。</p>
+        <p class="lead" style="margin-top:1.1rem">CAIは、この全体を6つの能力として定義し、何ができていて、何が足りないのかを見通せるようにする地図です。Affectosphereは、知覚に留まらず、この地図の全域に事業機会を見ています。</p>
+      </div>
+      <div class="fig"><img src="img/cai.webp" alt="感情を扱うAIの内部を観察する様子の図" width="1024" height="1024" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">03 &mdash; The Six Abilities</p>
+      <h2>CAI の6能力。</h2>
+    <p class="lead">それぞれの力の意味と、Affectosphereの取り組みを示します。事業としての接点が多いのは、ACが担う「知覚」です。</p>
+    </header>
+    <ul class="rows">
+      <li class="reveal">
+        <div><span class="meta">01 Perception</span></div>
+        <div class="body">
+          <h3>知覚</h3>
+          <p class="accent">感情を観測し、測定する力。Affectosphereは感情を<b>点ではなく確率分布</b>で捉え、<b>本質的な曖昧さとモデルの迷いを分離</b>して返します。感情基盤モデルが担う中核で、事業の接点も最も多い能力です。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">02 Representation</span></div>
+        <div class="body">
+          <h3>表象</h3>
+          <p class="accent">感情を内部に<b>保ち、受け渡す</b>力。曖昧さを潰さずに表現し、人とAI・人と人のあいだで気持ちを伝える。既存サービスが最も手薄な領域であり、私たちが重視する機会です。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">03 Reasoning</span></div>
+        <div class="body">
+          <h3>推論</h3>
+          <p class="accent">文脈から感情の<b>原因や推移を推し量る</b>力。なぜその感情が生じたのか、次にどう変化しうるかを、根拠とともに扱います。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">04 Generation</span></div>
+        <div class="body">
+          <h3>生成</h3>
+          <p class="accent">感情を<b>表し、生み出す</b>力。状況に応じた適切な感情表現を、押し付けでなく設計可能な形で生成します。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">05 Interaction</span></div>
+        <div class="body">
+          <h3>相互作用</h3>
+          <p class="accent">人とAIが感情を<b>やりとりする</b>力。読み取った感情に対して、行動推奨など<b>次の一手</b>を返し、対話や体験を噛み合わせます。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">06 Control</span></div>
+        <div class="body">
+          <h3>制御</h3>
+          <p class="accent">感情的なふるまいを<b>律する</b>力。過度に迎合しない、不確実なときは控える：安全で誠実な振る舞いを設計要件に据えます。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band cream">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">04 &mdash; Core Technology</p>
+      <h2>技術の中身。</h2>
+    <p class="lead">テキスト・音声・行動などの入力を、感情基盤モデルが処理し、分布・不確実性・行動推奨として返します。その中身を6つに分けて示します。</p>
+    </header>
+    <div class="pipeline reveal">
+      <div class="pstep"><p class="k">Input</p><h4>現場の入力</h4><p>テキスト・音声・行動など、作業前や対話の中で得られる情報。</p></div>
+      <div class="pstep accent"><p class="k">Foundation Model</p><h4>感情基盤モデル</h4><p>多タスク・多言語を1モデルで。較正された推論を行う中核。</p></div>
+      <div class="pstep"><p class="k">Output</p><h4>分布・不確実性・行動</h4><p>感情の確率分布＋曖昧さの分離＋次の行動推奨。</p></div>
+      <div class="pstep"><p class="k">Field</p><h4>現場の判断へ</h4><p>人の判断を代替せず、見落としを減らす材料として届ける。</p></div>
+    </div>
+    <ul class="rows wide">
+      <li class="reveal">
+        <div><span class="meta">Foundation Model</span></div>
+        <div class="body">
+          <h3>感情基盤モデル</h3>
+          <p class="accent">極性・離散感情・皮肉・攻撃性・強度・側面別感情・共感などを、<b>多言語で一つのモデル</b>が扱います。用途ごとに専用モデルを作る必要がなく、<b>データの少ない領域にも軽い適応</b>で届く：従来の個別開発では難しかった展開を可能にします。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">Uncertainty</span></div>
+        <div class="body">
+          <h3>不確実性の定量化</h3>
+          <p class="accent"><b>本質的な曖昧さ（aleatoric）</b>と<b>モデルの迷い（epistemic）</b>を数理的に分離して返します。MCMCに基づく事後分布から較正された不確実性を得る：この手法は代表の査読研究に基づきます。自信がないときは「わからない」と正直に示せるのが要です。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">Calibration</span></div>
+        <div class="body">
+          <h3>較正</h3>
+          <p class="accent">出力される確率が、実際の確からしさと一致するように較正します。汎用LLMの「0.8」が本当に80%を意味しない問題を避け、<b>現場で意思決定に使える数値</b>にします。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">Multilingual</span></div>
+        <div class="body">
+          <h3>多言語・ロングテール</h3>
+          <p class="accent">少数言語・小規模領域など、採算が合わず切り捨てられてきた<b>感情のロングテール</b>に、一つの基盤モデルから届きます。やさしい日本語を含む多言語に対応していきます。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">Evaluation</span></div>
+        <div class="body">
+          <h3>評価と基準</h3>
+          <p class="accent">感情AIの評価指標（REACH・VEIL・TILT）を研究として公開し、<b>測り方の共通語</b>をつくります。誰もが同じものさしで質を測れることが、市場全体の信頼につながります。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">By Design</span></div>
+        <div class="body">
+          <h3>設計原則</h3>
+          <p class="accent">顔を撮らない・個人を特定しない測り方を選べます。<b>不確実性を正直に示す／人の判断を代替しない</b>：倫理を後付けでなく設計要件に据えます。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">05 &mdash; What We Can Do</p>
+      <h2>具体的に、できること。</h2>
+    <p class="lead">ACとCAIの能力を、使える機能として並べます。各項目に、ACとCAIのどこに当たるかを添えました。</p>
+    </header>
+    <div class="cards c3">
+      <article class="card reveal"><p class="no">01</p><h3>感情を「分布」で返す</h3><p>怒り0.82のような点ではなく、較正された確率分布（例：温かみ38%・無関心31%・皮肉23%・怒り8%）で返す。受け取られ方の割れが見える。</p><p class="sublabel">AC ／ CAI 知覚</p></article>
+      <article class="card reveal"><p class="no">02</p><h3>曖昧さとAIの迷いを分離</h3><p>「言葉そのものが曖昧なのか（aleatoric）」「モデルが迷っているのか（epistemic）」を別の数値で返す。自信がないときは正直に示す。</p><p class="sublabel">AC ／ CAI 知覚</p></article>
+      <article class="card reveal"><p class="no">03</p><h3>多タスク・多言語を1モデルで</h3><p>極性・離散感情・皮肉・攻撃性・強度・側面別感情・共感などを、多言語で1つの基盤モデルが扱う。データの少ない領域にも軽い適応で届く。</p><p class="sublabel">AC ／ 基盤モデル</p></article>
+      <article class="card reveal"><p class="no">04</p><h3>次の行動を返す</h3><p>感情を返して終わりではなく、顧客が設定したルールに基づき「次にとるべき行動（例：有人対応へエスカレーション）」を返す。</p><p class="sublabel">CAI 相互作用</p></article>
+      <article class="card reveal"><p class="no">05</p><h3>モダリティ間の不一致を検出</h3><p>テキストで「大丈夫」、音声でフラストレーション：その食い違いを数値化します。テキストに加えて、視線・映像・音声からの計測にも対応を広げています。</p><p class="sublabel">AC ／ マルチモーダル</p></article>
+      <article class="card reveal"><p class="no">06</p><h3>個人を特定しない測り方</h3><p>組織や会場など多人数を対象とする場合も、個人を特定せず集団レベルで推定する設計を選べます。監視ではなく、包摂と改善のための測定です。</p><p class="sublabel">AC ／ 集団推定</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="band cream">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">06 &mdash; Use Cases</p>
+      <h2>現場で、こう活きる。</h2>
+    <p class="lead">同じ1つの基盤モデルを、現場の文脈に合わせて導入します。以下は想定する活用像です（有用性は各現場の検証を前提とします）。</p>
+    </header>
+    <ul class="usecases">
+      <li class="reveal">
+        <div class="uc-fig"><img src="img/business-flat-800.webp" alt="" aria-hidden="true" width="800" height="800" loading="lazy"></div>
+        <div class="uc-body">
+          <p class="meta">Marketing</p>
+          <h3>顧客理解・マーケティング</h3>
+          <p class="before">口コミや問い合わせの感情が、肯定・否定など数段階にしか分けられない。</p>
+          <p class="after">感情の<b>内訳と確からしさ</b>を分布で返し、皮肉や不満の混ざり方まで見える形にする。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="uc-fig"><img src="img/human-ai-interaction-flat-800.webp" alt="" aria-hidden="true" width="800" height="800" loading="lazy"></div>
+        <div class="uc-body">
+          <p class="meta">CX / Chatbot</p>
+          <h3>対話AI・カスタマーサポート</h3>
+          <p class="before">汎用LLMの判定が実行ごとに揺れ、応答の品質を保証できない。</p>
+          <p class="after">較正された感情の分布と<b>行動推奨</b>を返し、「怒っている顧客は有人対応へ」など<b>次の一手</b>の判断材料にできる。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="uc-fig"><img src="img/data-augmentation-flat-800.webp" alt="" aria-hidden="true" width="800" height="800" loading="lazy"></div>
+        <div class="uc-body">
+          <p class="meta">Workplace</p>
+          <h3>社内のコミュニケーション・組織づくり</h3>
+          <p class="before">組織の状態を知りたいが、個人の監視になってしまう設計は使えない。</p>
+          <p class="after">本人の同意を得た社内アンケートなどから、<b>個人を特定せず集団レベル</b>で状態を推定する設計を採れる。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="uc-fig"><img src="img/emotion-recognition-flat-800.webp" alt="" aria-hidden="true" width="800" height="800" loading="lazy"></div>
+        <div class="uc-body">
+          <p class="meta">Care</p>
+          <h3>医療・福祉・相談支援</h3>
+          <p class="before">相談文や会話の奥にある不安・痛みの兆候が埋もれ、誤りが許されない。</p>
+          <p class="after">感情を<b>較正された確率</b>で示し、確信が低いときは「わからない」と返す。断定せず、<b>専門職の判断を補助</b>する道具として設計。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="uc-fig"><img src="img/human-emotion-understanding-flat-800.webp" alt="" aria-hidden="true" width="800" height="800" loading="lazy"></div>
+        <div class="uc-body">
+          <p class="meta">Education</p>
+          <h3>教育・学習支援</h3>
+          <p class="before">学びの場の戸惑いや意欲が、言葉にならず見えない。</p>
+          <p class="after">やり取りの感情を<b>曖昧さを保ったまま</b>捉え、つまずきや関心の変化を支援者が汲み取りやすくする。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="uc-fig"><img src="img/application-development-flat-800.webp" alt="" aria-hidden="true" width="800" height="800" loading="lazy"></div>
+        <div class="uc-body">
+          <p class="meta">Venue</p>
+          <h3>店舗・展示・エンタメ</h3>
+          <p class="before">来場者の反応を知りたいが、文章以外（視線・表情・声）の計測が必要になる。</p>
+          <p class="after">来場者の反応の把握と体験の設計を支える。文章に加えて<b>視線・映像・音声</b>の計測にも対応し、展示の現場で検証しながら届けます。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="uc-fig"><img src="img/ethics-philosophy-flat-800.webp" alt="" aria-hidden="true" width="800" height="800" loading="lazy"></div>
+        <div class="uc-body">
+          <p class="meta">Public</p>
+          <h3>地域・行政</h3>
+          <p class="before">問い合わせや声の感情が、件数としてしか扱われない。</p>
+          <p class="after">市民の声の感情を<b>多言語</b>で分布として捉え、やさしい日本語での応対や、見落としの少ない窓口対応を支える。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">07 &mdash; How We Deliver</p>
+      <h2>提供のかたち。</h2>
+    <p class="lead">単品のAPIから、現場に合わせた導入支援、受託・顧問まで。要望に合わせて選べます。</p>
+    </header>
+    <div class="cards c2">
+      <article class="card reveal"><p class="no">A</p><h3>場面別の設計・実装（受託研究開発）</h3><p>目的の整理 &rarr; 技術の選定・組み合わせ &rarr; 試作 &rarr; 評価 &rarr; 組み込み。一つの製品ではなく、感情AIの研究開発力そのものを場面ごとに提供します。</p></article>
+      <article class="card reveal"><p class="no">B</p><h3>感情基盤モデルと感情APIの提供</h3><p>多様な感情タスクを一つで扱う感情基盤モデル Affeline。研究用・非商用のライセンスで公開するほか、商用利用のライセンスと、用途に合わせたAPIの形でご提供します。</p></article>
+      <article class="card reveal"><p class="no">C</p><h3>評価・監査と倫理教育</h3><p>感情AIの判定の偏りや妥当性を検証します。導入前の点検、評価の設計、企業・開発者向けの感情AI倫理教育まで。</p></article>
+      <article class="card reveal"><p class="no">D</p><h3>感情データの分析・作成</h3><p>注釈者間の不一致の分析、受け取り方の割れが分かる感情データの作成と提供。お手元のデータの分析も承ります。</p></article>
+    </div>
+    <p class="reveal" style="margin-top:2.5rem"><a class="btn btn-solid" href="contact.html">導入・PoCを相談する <span class="arw">&rarr;</span></a></p>
+  </div>
+</section>
+
+<section class="band cream">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">08 &mdash; Data &amp; Privacy</p>
+      <h2>データの扱い。</h2>
+    <p class="lead">感情データは、扱いが社会的な論点になっている領域です。私たちが設計上の前提にしていることを示します。</p>
+    </header>
+    <ul class="rows">
+      <li class="reveal">
+        <div><span class="meta">01</span></div>
+        <div class="body">
+          <h3>個人を特定しない選択肢</h3>
+          <p>顔を撮らない、個人を特定しない測り方を選べます。多人数を対象とする場合も、個人を特定せず集団レベルで推定する設計を採れます。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">02</span></div>
+        <div class="body">
+          <h3>不確実なときは、そう返す</h3>
+          <p>確信が低いときは「わからない」と示します。確からしさを偽らないことを、出力の要件にしています。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">03</span></div>
+        <div class="body">
+          <h3>人の判断を代替しない</h3>
+          <p>出力は判断材料です。最終的な判断と解釈は人に委ねる前提で、画面も運用も設計します。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">04</span></div>
+        <div class="body">
+          <h3>扱う範囲は、導入ごとに取り決める</h3>
+          <p>対象とするデータの範囲、保存、利用の範囲は、導入のたびに明文化します。具体的な取り扱いは個別のご相談のうえ定めます。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">09 &mdash; Why Affectosphere</p>
+      <h2>汎用AIでは、できないこと。</h2>
+    </header>
+    <div class="reveal">
+      <table class="compare">
+        <thead><tr><th>観点</th><th>汎用LLM／既存の感情AI</th><th>Affectosphere</th></tr></thead>
+        <tbody>
+          <tr><td>感情の出力</td><td class="them">点推定・数段階の分類</td><td class="us">較正された確率分布</td></tr>
+          <tr><td>曖昧さ</td><td class="them">1つに合算</td><td class="us">本質的曖昧さ × 推定ブレを分離</td></tr>
+          <tr><td>多タスク・多言語</td><td class="them">都度プロンプト／都度専用モデル</td><td class="us">1基盤モデルで統合・少数領域に強い</td></tr>
+          <tr><td>次の行動</td><td class="them">返さない</td><td class="us">行動推奨を返す</td></tr>
+          <tr><td>導入</td><td class="them">顧客任せ</td><td class="us">現場に合わせた応用支援込み</td></tr>
+          <tr><td>倫理</td><td class="them">較正・プライバシーが曖昧</td><td class="us">不確実性を正直に・顔を撮らない選択肢</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:1.2rem">※ 性能・有用性は、各現場での検証を前提にお伝えします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="band cream">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">10 &mdash; Honesty</p>
+      <h2>正直に、できることを示す。</h2>
+    </header>
+    <div class="cards c3">
+      <article class="card reveal"><p class="no">&#10003;</p><h3>示すこと</h3><p>何をどこまで測れているかを、能力ごとに示します。評価の方法と結果は、導入をご判断いただく前にお渡しします。</p></article>
+      <article class="card reveal"><p class="no">&rarr;</p><h3>広げること</h3><p>視線・映像・音声への対応、より多くの言語・領域への展開を、現場での検証とあわせて進めています。</p></article>
+      <article class="card reveal"><p class="no">!</p><h3>偽らないこと</h3><p>確信が低いときは「わからない」と示します。測れていないことを、測れたことにはしません。</p></article>
+    </div>
+    <div class="measure-wide reveal" style="margin-top:2.5rem">
+      <p class="lead">CAIの枠組みも、感情を分布と不確実性で扱う手法も、代表の査読研究に基づいています。論文・受賞・研究助成の一覧は <a class="link-amber" href="https://lab.affectosphere.group/" target="_blank" rel="noopener">研究グループサイト</a> にまとめています。私たちは、能力ごとに「どこまでできているか」を正直に示したうえでお引き受けします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="surface-ink">
+  <div class="ink-grid" aria-hidden="true"></div>
+  <div class="wrap contact-block">
+    <p class="eyebrow">Contact</p>
+    <h2>あなたの現場に、感情の正直な測りを。</h2>
+    <p>導入のご相談、技術評価・PoC、共創・取材など、ご連絡ください。</p>
+    <p><a class="mail" href="https://lab.affectosphere.group/contact/" target="_blank" rel="noopener">お問い合わせフォームへ <span aria-hidden="true">&#8599;</span></a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap inner">
+    <p class="fbrand">Affectosphere</p>
+    <p class="ftag">感情AIを、社会へ。Affectosphere時代に、感情最適化された暮らしをつくる。</p>
+    <div class="flinks">
+      <a href="index.html">ホーム</a>
+      <a href="affectosphere.html">Affectosphere</a>
+      <a href="vision.html">ビジョン</a>
+      <a href="technology.html">技術</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="company.html">会社概要</a>
+      <a href="https://lab.affectosphere.group/" target="_blank" rel="noopener">研究グループ &#8599;</a>
+      <a href="https://news.affectosphere.group/" target="_blank" rel="noopener">ニュース &#8599;</a>
+    </div>
+  </div>
+  <div class="wrap copy">&copy; 2026 AFFECTOSPHERE &middot; EMOTION AT THE CORE OF AI</div>
+</footer>
+
+<script src="js/site.js" defer></script>
+</body>
+</html>

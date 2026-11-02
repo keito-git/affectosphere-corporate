@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Affectosphere &mdash; 感情AIを社会へ広げ、生活を最適化する</title>
+<meta name="description" content="Affectosphereは、他社のサービスや組織の「感情の部分」を担う感情AIの会社です。場面別の設計・実装と受託研究開発、感情基盤モデルの提供、感情データ、評価・監査と倫理教育まで。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Affectosphere">
+<meta property="og:title" content="Affectosphere &mdash; 感情AIを社会へ広げ、生活を最適化する">
+<meta property="og:description" content="Affectosphereは、他社のサービスや組織の「感情の部分」を担う感情AIの会社です。場面別の設計・実装と受託研究開発、感情基盤モデルの提供、感情データ、評価・監査と倫理教育まで。">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap brand-row">
+    <a class="brand" href="index.html" aria-label="Affectosphere ホーム">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.28"/>
+          <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.25"/>
+          <circle cx="16" cy="16" r="4.75" fill="none" stroke="#C4974A" stroke-width="1.25"/>
+          <circle cx="16" cy="16" r="1.75" fill="currentColor"/>
+        </svg>
+      <span class="brand-name">
+        <b>Affectosphere</b>
+        <span>Emotion AI Company</span>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="ghost-square" href="contact.html">お問い合わせ</a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" data-nav-toggle>
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+          <path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="nav-band" aria-label="主要メニュー">
+    <div class="wrap">
+      <ul>
+        <li><a href="affectosphere.html">Affectosphere</a></li>
+        <li><a href="vision.html">ビジョン</a></li>
+        <li><a href="technology.html">技術</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" data-nav-drawer>
+    <div class="wrap">
+      <ul>
+        <li><a href="affectosphere.html">Affectosphere</a></li>
+        <li><a href="vision.html">ビジョン</a></li>
+        <li><a href="technology.html">技術</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-heading">
+  <img class="hero-bg" src="hero/town-poster.webp" alt="" aria-hidden="true" width="1800" height="990">
+  <canvas class="hero-canvas" data-hero-town aria-hidden="true"></canvas>
+
+  <div class="hero-panels" aria-hidden="true">
+    <div class="hero-dash left" data-hero-dash="field"
+         data-names='["喜び","信頼","恐れ","驚き","悲しみ","嫌悪","怒り","期待"]'>
+      <p class="pk">Affectosphere &middot; Field</p>
+      <h3 class="pt">場の感情を追う</h3>
+      <div class="row"><span>観測人数</span><span class="v"><span data-f="n">&ndash;</span></span></div>
+      <ul data-f="bars" class="bars"></ul>
+      <dl>
+        <dt>場の確信度</dt><dd data-f="certainty">&ndash;</dd>
+        <dt>干渉</dt><dd data-f="agreement">&ndash;</dd>
+      </dl>
+      <p class="pn">例示分布（実データではありません）</p>
+    </div>
+
+    <div class="hero-dash right" data-hero-dash="person"
+         data-modes='["街を歩く","公園にいる"]'>
+      <p class="pk">Person &middot; Tracking</p>
+      <h3 class="pt">ひとりの感情を追う</h3>
+      <div class="row"><span class="v" data-f="id">&ndash;</span><span data-f="mode">&ndash;</span></div>
+      <svg class="spark" viewBox="0 0 100 26" preserveAspectRatio="none" aria-hidden="true">
+        <path data-f="spark-area" d="" fill="#C4974A" fill-opacity="0.14"></path>
+        <polyline data-f="spark" points="" fill="none" stroke="#C4974A" stroke-width="1.4"
+                  stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></polyline>
+      </svg>
+      <dl>
+        <dt>最も強い感情</dt><dd><span data-f="top">&ndash;</span> <span data-f="topv">&ndash;</span></dd>
+        <dt>確信度</dt><dd data-f="pcertainty">&ndash;</dd>
+        <dt>覚醒度</dt><dd data-f="arousal">&ndash;</dd>
+      </dl>
+      <p class="pn">例示分布（実データではありません）</p>
+    </div>
+  </div>
+
+  <div class="hero-wash" aria-hidden="true"></div>
+
+  <div class="wrap hero-inner">
+    <p class="eyebrow reveal">Affectosphere &middot; Emotion AI Company</p>
+    <h1 id="hero-heading" class="reveal">
+      <span class="era">Affectosphere時代に、</span>
+      <span class="line">感情AIを社会へ広げ、</span>
+      <span class="line">生活を最適化する。</span>
+    </h1>
+    <p class="sub reveal">
+      感情は、社会を満たす環境になりました。その時代に、感情を理解するAIをあらゆる現場へ届け、
+      暮らしと社会をより良くする：<strong>感情最適化された時代</strong>をつくる会社です。
+    </p>
+    <div class="cta reveal">
+      <a class="btn btn-solid" href="technology.html">技術とできることを見る <span class="arw">&rarr;</span></a>
+      <a class="btn btn-ghost" href="affectosphere.html">Affectosphereとは <span class="arw">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">01 &mdash; Vision</p>
+      <h2>感情最適化された時代を、つくる。</h2>
+    <p class="lead">感情が社会を満たす環境になったいま、それを正しく扱えるかどうかで、暮らしの質が変わります。私たちが目指すのは、一つひとつの場面で感情が正しく扱われている状態です。</p>
+    </header>
+    <ul class="rows">
+      <li class="reveal">
+        <div><span class="meta">01</span></div>
+        <div class="body">
+          <h3>見落とされない。</h3>
+          <p>相談の奥にある苦しさが、定型的な返答で流されない。確信が低いときは「わからない」と示し、人の判断へ渡す。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">02</span></div>
+        <div class="body">
+          <h3>噛み合う。</h3>
+          <p>対話AIが、顧客の怒りや不安を読み落とさない。読み取った感情に対して、次の一手を返す。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">03</span></div>
+        <div class="body">
+          <h3>取りこぼさない。</h3>
+          <p>少数言語、小規模な領域、聞こえにくい人。採算に合わないとして切り捨てられてきた場所にも届く。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">04</span></div>
+        <div class="body">
+          <h3>偽られない。</h3>
+          <p>盛り上がりを演出するために感情を捏造しない。測れていないことは、測れていないと示す。</p>
+        </div>
+      </li>
+    </ul>
+    <div class="measure-wide reveal" style="margin-top:2.5rem">
+      <p class="lead">この状態を、特定の業界だけでなく、暮らしのあらゆる場面で当たり前にする。それが私たちの言う<strong>感情最適化された時代</strong>です。感情AIを社会へ広げることが、その手段になります。</p>
+      <p style="margin-top:1.6rem"><a class="btn btn-ghost" href="vision.html">ビジョンを詳しく見る <span class="arw">&rarr;</span></a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band cream">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">02 &mdash; Concept</p>
+      <h2>感情が社会を満たす時代に、その環境を扱う感情AIを。</h2>
+    </header>
+    <div class="figrow reveal">
+      <div class="measure">
+        <p class="lead">感情は、個人の内面を超えて、言葉・声・行動として社会のあらゆる場所にあふれ、社会を満たす環境になりました。私たちはこれを <strong>Affectosphere（情動圏）</strong> と呼びます。この環境を測り、理解し、活かす層が、感情AIです。</p>
+        <p class="lead" style="margin-top:1.1rem">その技術の土台が <strong>Affective Computing（AC／感情計算）</strong>、備えるべき力を体系化した枠組みが <strong>CAI（計算論的感情知性）</strong>です。事業の接点はACに集まり、CAIはその全体像を示します。</p>
+        <p style="margin-top:1.6rem"><a class="btn btn-ghost" href="affectosphere.html">Affectosphere を詳しく見る <span class="arw">&rarr;</span></a></p>
+      </div>
+      <div class="fig"><img src="img/aff-tracking.webp" alt="街のなかの感情を観測する様子の図" width="1024" height="1024" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">03 &mdash; What We Do</p>
+      <h2>他社のサービスと組織の「感情の部分」を担う。</h2>
+    <p class="lead">自社で最終サービスを作るのではなく、他社のサービスや組織の<strong>感情を扱う部分</strong>を引き受けます。場面ごとに適した感情AIを選び、組み合わせ、必要なら作る：一つの製品ではなく、感情AIの研究開発力そのものを提供するのが私たちの事業です。</p>
+    </header>
+    <ul class="rows wide">
+      <li class="reveal">
+        <div><span class="meta">01 ／ 設計・実装</span></div>
+        <div class="body">
+          <h3>場面別の感情AIの設計・実装</h3>
+          <p>目的の整理、扱えるデータと倫理上の制約の確認、技術の選定・組み合わせ、試作、評価、組み込みまで。受託研究開発としてお引き受けします。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">02 ／ 基盤モデル</span></div>
+        <div class="body">
+          <h3>感情基盤モデルの提供</h3>
+          <p>多様な感情タスクを一つで扱う感情基盤モデル <strong>Affeline</strong>。研究用・非商用のライセンスで Hugging Face に公開しているほか、商用利用のライセンスとAPIの形でご提供します。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">03 ／ データ</span></div>
+        <div class="body">
+          <h3>感情データの分析・作成</h3>
+          <p>注釈者間の不一致の分析、受け取り方の割れが分かる感情データの作成。お手元のデータの分析も、データそのものの提供も行います。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">04 ／ 評価・教育</span></div>
+        <div class="body">
+          <h3>感情AIの評価・監査と倫理教育</h3>
+          <p>感情AIの判定の偏りや妥当性を検証します。導入前の点検、評価の設計、企業・開発者向けの感情AI倫理教育まで。</p>
+        </div>
+      </li>
+    </ul>
+    <div class="measure-wide reveal" style="margin-top:2.5rem">
+      <p class="note">あわせて、メディア活動・書籍・セミナー、展示会での感情AIアートの展示を通じて、感情AIの使い方そのものを社会に広げます。</p>
+      <p style="margin-top:1.6rem"><a class="btn btn-ghost" href="technology.html">技術とできることを見る <span class="arw">&rarr;</span></a></p>
+    </div>
+  </div>
+</section>
+
+<section class="surface-ink band ink">
+  <div class="ink-grid" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <header class="sec-head reveal">
+      <p class="eyebrow">04 &mdash; Problems</p>
+      <h2 style="color:#F4F2ED">感情AIを使いたい企業の、3つの壁</h2>
+      <p class="lead" style="color:var(--ink-dim)">感情を扱う機能を自社のサービスや組織に取り入れたい。そう考えた企業が実際にぶつかるのは、この3つです。</p>
+    </header>
+    <ul class="rows wide">
+      <li class="reveal">
+        <div><span class="meta">01 ／ 合わない</span></div>
+        <div class="body">
+          <h3>場面ごとに、必要な感情もデータも精度も違う。</h3>
+          <p>汎用の道具では目的に合わず、専用に作るにはデータと専門知識が要ります。どの技術をどう組み合わせるかの判断が、社内では難しい。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">02 ／ 揺れる</span></div>
+        <div class="body">
+          <h3>汎用の大規模言語モデルは、結果が揺れる。</h3>
+          <p>実行ごとに判定が変わり、確からしさも分かりません。重要な判断の根拠にしにくく、品質を保証できません。</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div><span class="meta">03 ／ 危うい</span></div>
+        <div class="body">
+          <h3>感情の推定を誤ると、人を傷つける。</h3>
+          <p>用途によっては規制の対象にもなります（EUのAI規則は、感情認識を用途に応じて禁止・規制しています）。社内に判断できる人材がいないことが、導入をためらわせます。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">05 &mdash; How to Start</p>
+      <h2>はじめかた。</h2>
+    <p class="lead">小さく試してから広げます。最初のご相談から導入まで、4つの段階で進めます。</p>
+    </header>
+    <div class="pipeline reveal">
+      <div class="pstep"><p class="k">01 Talk</p><h4>相談</h4><p>現場の課題と、扱えるデータの範囲を伺います。感情AIが向かない場合は、そうお伝えします。</p></div>
+      <div class="pstep"><p class="k">02 Design</p><h4>設計</h4><p>どの感情をどう測り、何を返すかを決めます。小さく始める範囲を定めます。</p></div>
+      <div class="pstep accent"><p class="k">03 PoC</p><h4>実証</h4><p>限られた範囲で試し、現場にとって有用かを確かめます。</p></div>
+      <div class="pstep"><p class="k">04 Deploy</p><h4>導入</h4><p>既存のシステムへ組み込み、運用に合わせて調整します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band cream">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">06 &mdash; Research</p>
+      <h2>研究の裏付けは、グループサイトに。</h2>
+    </header>
+    <div class="measure-wide reveal">
+      <p class="lead">技術の土台は、代表が査読誌・国際会議で発表している研究です。論文、受賞、研究助成、研究テーマの一覧は、研究グループのサイトにまとめています。</p>
+    </div>
+    <div class="cards c2" style="margin-top:2.5rem">
+      <article class="card reveal">
+        <p class="no">Research</p>
+        <h3>Affectosphere Group</h3>
+        <p>研究グループのサイト。論文・受賞・研究助成・メンバー・研究テーマを掲載しています。</p>
+        <p class="sublabel"><a class="link-amber" href="https://lab.affectosphere.group/" target="_blank" rel="noopener">研究グループサイトを見る &#8599;</a></p>
+      </article>
+      <article class="card reveal">
+        <p class="no">News</p>
+        <h3>Affectosphere News</h3>
+        <p>感情AIの動向と、日々の発信をまとめたニュースサイト。</p>
+        <p class="sublabel"><a class="link-amber" href="https://news.affectosphere.group/" target="_blank" rel="noopener">ニュースサイトを見る &#8599;</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">07 &mdash; Founder</p>
+      <h2>代表</h2>
+    </header>
+    <div class="founder reveal">
+      <div class="ava photo"><img src="img/keito-inoshita.webp" alt="井下 敬翔" width="582" height="420" loading="lazy"></div>
+      <div>
+        <h3>井下 敬翔 <small>Keito Inoshita</small></h3>
+        <p class="role">Founder</p>
+        <p>感情AIと自然言語処理の研究者。感情を確率分布・不確実性として扱う研究を、査読誌・国際会議で発表。Affectosphere時代に感情AIを社会へ普及させ、人の暮らしを最適化する：その実現のためにAffectosphereを立ち上げる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="surface-ink">
+  <div class="ink-grid" aria-hidden="true"></div>
+  <div class="wrap contact-block">
+    <p class="eyebrow">Contact</p>
+    <h2>Affectosphere時代を、一緒に。</h2>
+    <p>導入のご相談、共創・受託、取材など、お気軽にご連絡ください。</p>
+    <p><a class="mail" href="https://lab.affectosphere.group/contact/" target="_blank" rel="noopener">お問い合わせフォームへ <span aria-hidden="true">&#8599;</span></a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap inner">
+    <p class="fbrand">Affectosphere</p>
+    <p class="ftag">感情AIを、社会へ。Affectosphere時代に、感情最適化された暮らしをつくる。</p>
+    <div class="flinks">
+      <a href="index.html">ホーム</a>
+      <a href="affectosphere.html">Affectosphere</a>
+      <a href="vision.html">ビジョン</a>
+      <a href="technology.html">技術</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="company.html">会社概要</a>
+      <a href="https://lab.affectosphere.group/" target="_blank" rel="noopener">研究グループ &#8599;</a>
+      <a href="https://news.affectosphere.group/" target="_blank" rel="noopener">ニュース &#8599;</a>
+    </div>
+  </div>
+  <div class="wrap copy">&copy; 2026 AFFECTOSPHERE &middot; EMOTION AT THE CORE OF AI</div>
+</footer>
+
+<script src="js/site.js" defer></script>
+</body>
+</html>
