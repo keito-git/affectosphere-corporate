@@ -19,7 +19,10 @@ repository root as-is.
 | `style.css` | The whole design system |
 | `js/` | Hero WebGL town scene, hero dashboards, site behaviour |
 | `img/`, `hero/` | Illustrations, the founder portrait, the hero poster fallback |
-| `tools/gen_corporate.py` | Generates every HTML file from the copy held in the script |
+| `og/` | Open Graph cards, one per page |
+| `robots.txt`, `sitemap.xml` | Generated alongside the pages |
+| `tools/gen_corporate.py` | Generates every HTML file, plus robots.txt and sitemap.xml |
+| `tools/gen_og.py` | Renders the Open Graph cards with headless Chrome |
 
 ## Editing
 
@@ -33,6 +36,19 @@ It rewrites every page in place. Edit the HTML directly only for a one-off
 experiment, and fold the change back into the generator afterwards.
 
 `style.css` is maintained by hand and is not generated.
+
+The Open Graph cards are rendered separately, and only need re-running when a
+page title changes:
+
+```sh
+python3 -I tools/gen_og.py
+```
+
+## Domain
+
+The canonical host is `https://affectosphere.group`. `www` is redirected to it
+in `netlify.toml`. Changing the host means changing `SITE` in
+`tools/gen_corporate.py`, `HOST` in `tools/gen_og.py`, and the redirect.
 
 ## Enquiries
 

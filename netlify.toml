@@ -3,3 +3,10 @@
 [build]
   publish = "."
   command = ""
+
+# The apex is the canonical host; www sends visitors there.
+[[redirects]]
+  from = "https://www.affectosphere.group/*"
+  to = "https://affectosphere.group/:splat"
+  status = 301
+  force = true

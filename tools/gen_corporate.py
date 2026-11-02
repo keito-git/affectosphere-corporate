@@ -9,6 +9,7 @@ import os
 
 # Output goes to the repository root (this file lives in tools/).
 DST = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE = "https://affectosphere.group"
 GROUP_CONTACT = "https://lab.affectosphere.group/contact/"
 
 NAV = [
@@ -106,6 +107,9 @@ SITE_JS = """<script src="js/site.js" defer></script>"""
 
 
 def page(filename, title, description, body, current=None, extra_head=""):
+    # The home page is served at "/", every other page at "/<name>.html".
+    url = SITE + ("/" if filename == "index.html" else "/" + filename)
+    og = SITE + "/og/" + (filename[:-5] if filename != "index.html" else "home") + ".png"
     html = f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -113,10 +117,15 @@ def page(filename, title, description, body, current=None, extra_head=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
+<link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Affectosphere">
+<meta property="og:url" content="{url}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
+<meta property="og:image" content="{og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -919,6 +928,41 @@ def build_thanks():
          "お問い合わせを受け付けました。", body)
 
 
+PAGES = [
+    ("index.html", "1.0"),
+    ("affectosphere.html", "0.8"),
+    ("vision.html", "0.8"),
+    ("technology.html", "0.9"),
+    ("contact.html", "0.7"),
+    ("company.html", "0.6"),
+]
+
+
+def build_robots_and_sitemap():
+    """A sitemap of the live pages. Redirect stubs and thanks.html stay out."""
+    robots = f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE}/sitemap.xml
+"""
+    with open(os.path.join(DST, "robots.txt"), "w", encoding="utf-8") as fh:
+        fh.write(robots)
+    print("wrote robots.txt", len(robots))
+
+    entries = []
+    for name, priority in PAGES:
+        loc = SITE + ("/" if name == "index.html" else "/" + name)
+        entries.append(
+            f"  <url>\n    <loc>{loc}</loc>\n"
+            f"    <priority>{priority}</priority>\n  </url>")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+           + "\n".join(entries) + "\n</urlset>\n")
+    with open(os.path.join(DST, "sitemap.xml"), "w", encoding="utf-8") as fh:
+        fh.write(xml)
+    print("wrote sitemap.xml", len(xml))
+
+
 def build_redirects():
     redirect("concept.html", "affectosphere.html",
              "移動しました ｜ Affectosphere",
@@ -939,4 +983,5 @@ if __name__ == "__main__":
     build_contact()
     build_company()
     build_thanks()
+    build_robots_and_sitemap()
     build_redirects()
