@@ -1,7 +1,7 @@
 # Affectosphere — corporate site
 
 The company site for Affectosphere: a static site of hand-written HTML and one
-hand-written stylesheet. No framework, no build step. Netlify publishes the
+hand-written stylesheet. No framework, no build step. Vercel serves the
 repository root as-is.
 
 ## Layout
@@ -46,9 +46,14 @@ python3 -I tools/gen_og.py
 
 ## Domain
 
-The canonical host is `https://affectosphere.group`. `www` is redirected to it
-in `netlify.toml`. Changing the host means changing `SITE` in
-`tools/gen_corporate.py`, `HOST` in `tools/gen_og.py`, and the redirect.
+The canonical host is `https://affectosphere.group`, served by Vercel from the
+repository root. `www` is redirected to the apex in `vercel.json`. Changing the
+host means changing `SITE` in `tools/gen_corporate.py`, `HOST` in
+`tools/gen_og.py`, and the redirect in `vercel.json`.
+
+DNS for the domain is at Cloudflare. The sibling sites are
+`lab.affectosphere.group` (the research group, on Netlify) and
+`news.affectosphere.group` (on Vercel).
 
 ## Enquiries
 
